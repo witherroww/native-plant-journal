@@ -97,7 +97,7 @@ export default function JournalCover({ onOpen }) {
                 textShadow: "0 1px 3px rgba(0,0,0,0.5), 0 -1px 0 rgba(255,255,255,0.06)",
               }}>
                 The Northeastern Native Plant<br />
-                <em style={{ fontStyle: "italic", color: "rgba(210,200,160,0.8)", fontSize: "0.85em" }}>Finder</em>
+                <em style={{ fontStyle: "italic", color: "rgba(210,200,160,0.8)", fontSize: "0.85em" }}>Journal</em>
               </h1>
             </div>
 
@@ -185,7 +185,7 @@ export default function JournalCover({ onOpen }) {
 
             {/* Coverage — bottom stamp */}
             <p className="mt-10" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(240,228,200,0.92)" }}>
-              A regional native planting database for Connecticut, Rhode Island, and Massachusetts
+              A field guide to native plants, birds, and habitats for Connecticut, Rhode Island, and Massachusetts
             </p>
           </div>
         </div>
