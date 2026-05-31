@@ -7,12 +7,12 @@ import PageBeforePlant from "@/components/journal/PageBeforePlant";
 import PageAuthor from "@/components/journal/PageAuthor";
 
 const TABS = [
-  { id: "plants",     label: "Recommended Plants",    num: "I" },
-  { id: "favorites",  label: "Ryan's Favorites",       num: "II" },
-  { id: "birds",      label: "Birds & Observations",   num: "III" },
-  { id: "why",        label: "Why Native Plants",      num: "IV" },
-  { id: "before",     label: "Before You Plant",       num: "V" },
-  { id: "author",     label: "About the Author",       num: "VI" },
+  { id: "plants", label: "Recommended Plants", num: "I" },
+  { id: "favorites", label: "Ryan's Favorites", num: "II" },
+  { id: "birds", label: "Birds & Observations", num: "III" },
+  { id: "why", label: "Why Native Plants", num: "IV" },
+  { id: "before", label: "Before You Plant", num: "V" },
+  { id: "author", label: "About the Author", num: "VI" },
 ];
 
 export default function JournalInterior({ profile, plants, onClose }) {
@@ -26,11 +26,11 @@ export default function JournalInterior({ profile, plants, onClose }) {
     if (newTab === activeTab || animating) return;
     window.scrollTo({
 
-    top: 0,
+      top: 0,
 
-    behavior: "smooth",
+      behavior: "smooth",
 
-  })
+    })
     setAnimating(true);
     setTimeout(() => { setActiveTab(newTab); setAnimating(false); }, 220);
   };
@@ -156,24 +156,35 @@ export default function JournalInterior({ profile, plants, onClose }) {
           {/* Top ruled line — like a notebook */}
           <div className="sticky top-0 z-30" style={{ backgroundColor: "#f7f2e8", borderBottom: "2px solid #d4c8a8", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
             {/* Mobile nav */}
-            <div className="flex overflow-x-auto" style={{ borderBottom: "1px solid #d4c8a8" }}>
+            <div
+              className="md:hidden grid grid-cols-2 gap-2 px-4 py-3"
+              style={{ borderBottom: "1px solid #d4c8a8" }}
+            >
               {TABS.map(tab => {
                 const isActive = tab.id === activeTab;
                 return (
                   <button
                     key={tab.id}
+                    type="button"
                     onClick={() => handleTabChange(tab.id)}
-                    className="shrink-0 px-4 py-2.5 transition-colors"
                     style={{
+                      minHeight: "56px",
+                      padding: "0.75rem 0.6rem",
+                      borderRadius: "10px",
+                      border: isActive ? "2px solid #4a6e3a" : "1px solid #d4c8a8",
+                      backgroundColor: isActive ? "rgba(74,110,58,0.14)" : "rgba(255,255,255,0.45)",
+                      color: isActive ? "#2f4f25" : "#7c6f55",
                       fontFamily: "'Inter', sans-serif",
-                      fontSize: "0.52rem", fontWeight: 700, letterSpacing: "0.15em",
+                      fontSize: "0.72rem",
+                      fontWeight: 800,
+                      letterSpacing: "0.07em",
                       textTransform: "uppercase",
-                      color: isActive ? "#4a6e3a" : "#a09070",
-                      borderBottom: isActive ? "2px solid #4a6e3a" : "2px solid transparent",
-                      marginBottom: "-1px",
-                      whiteSpace: "nowrap",
+                      lineHeight: 1.25,
                     }}
                   >
+                    <span style={{ display: "block", fontSize: "0.65rem", opacity: 0.65 }}>
+                      {tab.num}
+                    </span>
                     {tab.label}
                   </button>
                 );
@@ -203,12 +214,12 @@ export default function JournalInterior({ profile, plants, onClose }) {
 
           {/* Page content with fade transition */}
           <div style={{ opacity: animating ? 0 : 1, transition: "opacity 0.22s ease" }}>
-            {activeTab === "plants"    && <PagePlants profile={profile} plants={plants} />}
+            {activeTab === "plants" && <PagePlants profile={profile} plants={plants} />}
             {activeTab === "favorites" && <PageFavorites />}
-            {activeTab === "birds"     && <PageBirds />}
-            {activeTab === "why"       && <PageWhyNative />}
-            {activeTab === "before"    && <PageBeforePlant />}
-            {activeTab === "author"    && <PageAuthor profile={profile} plants={plants} />}
+            {activeTab === "birds" && <PageBirds />}
+            {activeTab === "why" && <PageWhyNative />}
+            {activeTab === "before" && <PageBeforePlant />}
+            {activeTab === "author" && <PageAuthor profile={profile} plants={plants} />}
           </div>
 
           {/* Page footer — ruled bottom */}
