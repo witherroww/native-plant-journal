@@ -154,7 +154,7 @@ export default function JournalInterior({ profile, plants, onClose }) {
         <div className="flex-1 relative" style={{ backgroundColor: "#f7f2e8" }}>
 
           {/* Top ruled line — like a notebook */}
-          <div className="sticky top-0 z-30" style={{ backgroundColor: "#f7f2e8", borderBottom: "2px solid #d4c8a8", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
+          <div className="z-30" style={{ backgroundColor: "#f7f2e8", borderBottom: "2px solid #d4c8a8", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
             {/* Mobile nav */}
             <div
               className="md:hidden grid grid-cols-2 gap-2 px-4 py-3"
