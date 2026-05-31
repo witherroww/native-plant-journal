@@ -156,7 +156,7 @@ export default function JournalInterior({ profile, plants, onClose }) {
           {/* Top ruled line — like a notebook */}
           <div className="sticky top-0 z-30" style={{ backgroundColor: "#f7f2e8", borderBottom: "2px solid #d4c8a8", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
             {/* Mobile nav */}
-            <div className="md:hidden flex overflow-x-auto" style={{ borderBottom: "1px solid #d4c8a8" }}>
+            <div className="flex overflow-x-auto" style={{ borderBottom: "1px solid #d4c8a8" }}>
               {TABS.map(tab => {
                 const isActive = tab.id === activeTab;
                 return (
