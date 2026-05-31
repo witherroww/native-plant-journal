@@ -168,8 +168,8 @@ export default function JournalInterior({ profile, plants, onClose }) {
                     type="button"
                     onClick={() => handleTabChange(tab.id)}
                     style={{
-                      minHeight: "56px",
-                      padding: "0.75rem 0.6rem",
+                      minHeight: "36px",
+                      padding: "0.4rem 0.5rem",
                       borderRadius: "10px",
                       border: isActive ? "2px solid #4a6e3a" : "1px solid #d4c8a8",
                       backgroundColor: isActive ? "rgba(74,110,58,0.14)" : "rgba(255,255,255,0.45)",
