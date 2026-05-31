@@ -105,7 +105,7 @@ export default function PageAuthor() {
           fontFamily: "'Crimson Pro', serif", fontSize: "1.15rem",
           color: "#3a3020", lineHeight: 1.85,
         }}>
-          Thankfully with my own little garden and this website I feel confident to be aprt of the native culture and i hope to gorw apwarness to keep the baruty of this eath going.
+          
         </p>
       </div>
 
