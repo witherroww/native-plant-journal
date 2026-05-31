@@ -80,34 +80,50 @@ export default function JournalInterior({ profile, plants, onClose }) {
             <div className="mb-6" style={{ height: "1px", backgroundColor: "rgba(210,190,90,0.2)" }} />
 
             {/* Tab navigation — looks like physical tabbed pages */}
-            <div className="md:hidden grid grid-cols-2 gap-2 px-4 py-3" style={{ borderBottom: "1px solid #d4c8a8" }}>
-              {TABS.map(tab => {
+            <nav className="flex flex-col gap-1 flex-1">
+              {TABS.map((tab) => {
                 const isActive = tab.id === activeTab;
                 return (
                   <button
                     key={tab.id}
                     type="button"
-                    onClick={() => handleTabChange(tab.id)}
-                    className="transition-all"
+                    onClick={() => {
+                      console.log("mobile tab clicked:", tab.id);
+                      handleTabChange(tab.id);
+                    }}
+                    className="text-left transition-all duration-150 group"
                     style={{
-                      padding: "0.7rem 0.6rem",
-                      border: isActive ? "2px solid #4a6e3a" : "1px solid #d4c8a8",
-                      backgroundColor: isActive ? "rgba(74,110,58,0.12)" : "rgba(255,255,255,0.35)",
-                      color: isActive ? "#2f4f25" : "#8a7a58",
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: "0.68rem",
-                      fontWeight: 800,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      borderRadius: "8px",
-                      minHeight: "44px",
+                      padding: "0.6rem 0.75rem",
+                      backgroundColor: isActive ? "rgba(247,242,232,0.95)" : "transparent",
+                      borderLeft: isActive ? "3px solid rgba(210,180,60,0.8)" : "3px solid transparent",
+                      marginLeft: "-3px",
                     }}
                   >
-                    {tab.num} · {tab.label}
+                    <span style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "1.1rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.18em",
+                      textTransform: "uppercase",
+                      color: isActive ? "#4a6e3a" : "rgba(210,195,150,0.55)",
+                      display: "block",
+                      marginBottom: "0.1rem",
+                    }}>
+                      {tab.num}
+                    </span>
+                    <span style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: "1.0rem",
+                      color: isActive ? "#2a3a20" : "rgba(230,215,175,0.7)",
+                      lineHeight: 1.3,
+                      display: "block",
+                    }}>
+                      {tab.label}
+                    </span>
                   </button>
                 );
               })}
-            </div>
+            </nav>
 
             {/* Bottom: zone info + close */}
             <div className="mt-auto pt-6 border-t" style={{ borderColor: "rgba(210,190,90,0.15)" }}>
