@@ -221,6 +221,44 @@ export default function JournalInterior({ profile, plants, onClose }) {
             {activeTab === "before" && <PageBeforePlant />}
             {activeTab === "author" && <PageAuthor profile={profile} plants={plants} />}
           </div>
+          <div className="md:hidden px-4 py-6" style={{ borderTop: "1px solid #d4c8a8" }}>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "0.65rem",
+              fontWeight: 800,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "#8a7a58",
+              marginBottom: "0.75rem",
+            }}>
+              Continue Reading
+            </p>
+
+            <div className="grid grid-cols-2 gap-2">
+              {TABS.map(tab => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => handleTabChange(tab.id)}
+                  style={{
+                    minHeight: "40px",
+                    padding: "0.4rem 0.5rem",
+                    border: tab.id === activeTab ? "2px solid #4a6e3a" : "1px solid #d4c8a8",
+                    backgroundColor: tab.id === activeTab ? "rgba(74,110,58,0.12)" : "rgba(255,255,255,0.4)",
+                    color: tab.id === activeTab ? "#2f4f25" : "#7c6f55",
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: "0.62rem",
+                    fontWeight: 800,
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    borderRadius: "8px",
+                  }}
+                >
+                  {tab.num} · {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           {/* Page footer — ruled bottom */}
           <div className="px-6 sm:px-10 py-6 flex items-center justify-between" style={{ borderTop: "1px solid #d4c8a8" }}>
