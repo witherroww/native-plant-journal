@@ -7,12 +7,12 @@ import PageBeforePlant from "@/components/journal/PageBeforePlant";
 import PageAuthor from "@/components/journal/PageAuthor";
 
 const TABS = [
-  { id: "plants", label: "Recommended Plants", num: "I" },
-  { id: "favorites", label: "Ryan's Favorites", num: "II" },
-  { id: "birds", label: "Birds & Observations", num: "III" },
-  { id: "why", label: "Why Native Plants", num: "IV" },
-  { id: "before", label: "Before You Plant", num: "V" },
-  { id: "author", label: "About the Author", num: "VI" },
+  { id: "plants",     label: "Recommended Plants",    num: "I" },
+  { id: "favorites",  label: "Ryan's Favorites",       num: "II" },
+  { id: "birds",      label: "Birds & Observations",   num: "III" },
+  { id: "why",        label: "Why Native Plants",      num: "IV" },
+  { id: "before",     label: "Before You Plant",       num: "V" },
+  { id: "author",     label: "About the Author",       num: "VI" },
 ];
 
 export default function JournalInterior({ profile, plants, onClose }) {
@@ -26,11 +26,11 @@ export default function JournalInterior({ profile, plants, onClose }) {
     if (newTab === activeTab || animating) return;
     window.scrollTo({
 
-      top: 0,
+    top: 0,
 
-      behavior: "smooth",
+    behavior: "smooth",
 
-    })
+  })
     setAnimating(true);
     setTimeout(() => { setActiveTab(newTab); setAnimating(false); }, 220);
   };
@@ -86,11 +86,7 @@ export default function JournalInterior({ profile, plants, onClose }) {
                 return (
                   <button
                     key={tab.id}
-                    type="button"
-                    onClick={() => {
-                      console.log("mobile tab clicked:", tab.id);
-                      handleTabChange(tab.id);
-                    }}
+                    onClick={() => handleTabChange(tab.id)}
                     className="text-left transition-all duration-150 group"
                     style={{
                       padding: "0.6rem 0.75rem",
@@ -207,12 +203,12 @@ export default function JournalInterior({ profile, plants, onClose }) {
 
           {/* Page content with fade transition */}
           <div style={{ opacity: animating ? 0 : 1, transition: "opacity 0.22s ease" }}>
-            {activeTab === "plants" && <PagePlants profile={profile} plants={plants} />}
+            {activeTab === "plants"    && <PagePlants profile={profile} plants={plants} />}
             {activeTab === "favorites" && <PageFavorites />}
-            {activeTab === "birds" && <PageBirds />}
-            {activeTab === "why" && <PageWhyNative />}
-            {activeTab === "before" && <PageBeforePlant />}
-            {activeTab === "author" && <PageAuthor profile={profile} plants={plants} />}
+            {activeTab === "birds"     && <PageBirds />}
+            {activeTab === "why"       && <PageWhyNative />}
+            {activeTab === "before"    && <PageBeforePlant />}
+            {activeTab === "author"    && <PageAuthor profile={profile} plants={plants} />}
           </div>
 
           {/* Page footer — ruled bottom */}
